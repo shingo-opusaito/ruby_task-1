@@ -5,7 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+ names.push("斎藤")
+ puts names 
 end
 
 def q2
@@ -57,7 +58,7 @@ def q8
 
   # 以下に回答を記載
 
-  
+
   p programming_languages
   p upper_case_programming_languages
 end
