@@ -6,13 +6,14 @@ def q1
 
   # 以下に回答を記載
  names.push("斎藤")
- puts names 
+ puts names
 end
 
 def q2
   array1 = %w(dog cat fish)
   array2 = %w(bird bat tiger)
-
+  array3 = array1+array2
+p array3
   # 以下に回答を記載
 
 end
