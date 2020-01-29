@@ -7,6 +7,7 @@ def q1
   # 以下に回答を記載
  names.<<("斎藤")
  puts names
+ # pushは配列への挿入の場合ほぼ使われていない。
 end
 
 def q2
@@ -22,7 +23,7 @@ def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
   # 以下に回答を記載
  p numbers.count(3)
-
+# count...カウントはそのまま数える。この場合だと3を数える。
 
 end
 
@@ -30,6 +31,8 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   p sports.compact!
+  # 破壊的メソッドはもとの配列にも影響を及ぼす。つまり元の配列も変更を
+  # くらっているということ。
   # 以下に回答を記載
 end
 
@@ -48,7 +51,9 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-
+# map は　map{　|　変数名　|　処理}とする
+# 例は下記の通り変数n を乗算10とする。
+# そしてnew_numbersへ代入されているためnew_numbersをputsすれば表示できる。
 
   new_numbers = numbers1.map { |n|n*10  }
   puts new_numbers
@@ -59,7 +64,9 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-
+p array.map!(&:to_i)
+# 文字列を数値へ変換するときはto_iメソッドが使用できる。
+# ちょっとよくわからんからここは深掘りして理解する。
 end
 
 def q8
@@ -68,8 +75,14 @@ def q8
   # 以下に回答を記載
 
 
-  p programming_languages
-  p upper_case_programming_languages
+  p programming_languages.map!(&:capitalize)
+  p upper_case_programming_languages = programming_languages.map!(&:upcase)
+
+# すべて大文字に変換するには、upcase 。
+# 逆にすべて小文字に変換するには　downcase
+# 大文字と小文字の反転を行う場合にはswapcase
+# 先頭だけ大文字に変換する場合には、capitalize。
+# 特定の文字だけを変換したい場合、tr。
 end
 
 def q9
