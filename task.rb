@@ -38,6 +38,9 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
+p  array1.empty?
+p array2.empty?
+
 
 end
 
@@ -45,6 +48,10 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
+
+
+  new_numbers = numbers1.map { |n|n*10  }
+  puts new_numbers
 
 end
 
