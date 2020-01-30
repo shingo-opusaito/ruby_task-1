@@ -127,13 +127,31 @@ def q11
     sports.flatten!.uniq!.each.with_index(1) do |sport,i|
         puts "No.#{i}#{sport}"
     end
+    # または
     # puts "ユーザーの趣味一覧"
     # sports.flatten!.uniq!
     #  sports.each.with_index(1) do |sport,i|
     #      puts "No.#{i}#{sport}"
     #  end
 
+# 　flatten!（フラトゥーン（平坦）） 平坦化した配列を返す
+# たくさんある配列のカッコをまとめて一つに#する感じ???
 
+#  自身を再帰的に平坦化する例。
+# a = [1, [2, 3, [4], 5]]
+# p a.flatten                     #=> [1, 2, 3, 4, 5]
+# p a                             #=> [1, [2, 3, [4], 5]]
+# 
+# # 自身を破壊的に平坦化する例。
+# a = [[[1, [2, 3]]]]
+# p a.flatten!                    #=> [1, 2, 3]
+# p a                             #=> [1, 2, 3]
+#
+#  uniq(ユニーク)重複したものを外す
+#  p [1, 1, 1].uniq         # => [1]
+# p [1, 4, 1].uniq         # => [1, 4]
+# p [1, 3, 2, 2, 3].uniq   # => [1, 3, 2]
+#
 
 end
 
