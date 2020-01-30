@@ -51,12 +51,15 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-# map は　map{　|　変数名　|　処理}とする
+#   map は、配列の要素の数だけブロック内の処理を繰り返し、
+# 結果として作成された配列を返す。map は元の値に対して影響を与えないのに対し
+# 、 map! は元の値を書き換える。 collect メソッドは map メソッドの別名。
+# # map は　map{　|　変数名　|　処理}とする
 # 例は下記の通り変数n を乗算10とする。
 # そしてnew_numbersへ代入されているためnew_numbersをputsすれば表示できる。
 
   new_numbers = numbers1.map { |n|n*10  }
-  puts new_numbers
+  p new_numbers
 
 end
 
@@ -64,19 +67,25 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-p array.map!(&:to_i)
+       # p array.map!(&:to_i)
+       # または
+        p array.map!{|n|n.to_i}
 # 文字列を数値へ変換するときはto_iメソッドが使用できる。
 # ちょっとよくわからんからここは深掘りして理解する。
 end
 
 def q8
-  programming_languages = %w(ruby php python javascript)
+    programming_languages = %w(ruby php python javascript)
+    # コードを追加
+  programming_languages.map(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
+ #    ↑
+ # こいつを全て大文字にするため、upcaseされたprogramming_languagesを代入して
+ # 表示した
 
-  # 以下に回答を記載
+    p programming_languages
+    p upper_case_programming_languages
 
-
-  p programming_languages.map!(&:capitalize)
-  p upper_case_programming_languages = programming_languages.map!(&:upcase)
 
 # すべて大文字に変換するには、upcase 。
 # 逆にすべて小文字に変換するには　downcase
