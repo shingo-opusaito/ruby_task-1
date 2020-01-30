@@ -67,11 +67,9 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-       # p array.map!(&:to_i)
-       # または
-        p array.map!{|n|n.to_i}
+       p array.map!(&:to_i)   # またはp array.map!{|n|n.to_i}
 # 文字列を数値へ変換するときはto_iメソッドが使用できる。
-# ちょっとよくわからんからここは深掘りして理解する。
+# ちょっとよくわからんからここは深掘りして理解する。←解決
 end
 
 def q8
@@ -98,13 +96,25 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
+ names.each.with_index(1) do |name,i|
 
+     puts "会員No.#{i}#{name}さん"
+ end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+ if foods.include?("うに")
+     puts "好物です"
+ else
+     puts "まあまあ好きです"
+ end
+ # include?とは文字列や配列の要素に含まれる文字列に対して、指定した文字列が存在するか確認するときに使用。
+ # 指定した文字列が
+ # 存在した場合はTrue
+ # 存在しない場合はFalseをそれぞれ返す。
 
 end
 
@@ -112,6 +122,18 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+   puts "ユーザーの趣味一覧"
+
+    sports.flatten!.uniq!.each.with_index(1) do |sport,i|
+        puts "No.#{i}#{sport}"
+    end
+    # puts "ユーザーの趣味一覧"
+    # sports.flatten!.uniq!
+    #  sports.each.with_index(1) do |sport,i|
+    #      puts "No.#{i}#{sport}"
+    #  end
+
+
 
 end
 
