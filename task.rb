@@ -75,7 +75,7 @@ end
 def q8
     programming_languages = %w(ruby php python javascript)
     # コードを追加
-  programming_languages.map(&:capitalize)
+   programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
  #    ↑
  # こいつを全て大文字にするため、upcaseされたprogramming_languagesを代入して
@@ -141,7 +141,7 @@ def q11
 # a = [1, [2, 3, [4], 5]]
 # p a.flatten                     #=> [1, 2, 3, 4, 5]
 # p a                             #=> [1, [2, 3, [4], 5]]
-# 
+#
 # # 自身を破壊的に平坦化する例。
 # a = [[[1, [2, 3]]]]
 # p a.flatten!                    #=> [1, 2, 3]
@@ -159,7 +159,10 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
-
+  puts data[:user][:name]
+  # とりあえずuserを出してみたら配列の内容が2つとも出たのでもう一つ後ろに
+  # つけくわえたらnameを取り出せましたがこれは2次元配列？というものになりますか？
+  # 二重カッコになっているハッシュの取り出し方で探してもよくわからなかったです。
 end
 
 def q13
@@ -167,6 +170,15 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+ user_data = user_data.merge(update_data)
+ puts user_data
+ #
+ # ハッシュを合体させるにはmergeメソッドを使用する。
+ # 変数名 = 変数名.merge(マージさせる変数名（ここは引数という）)
+ # 合体させているキーが重複しているときは引数の方が上書きされ出る。
+
+
+
 
 end
 
@@ -174,6 +186,12 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
+   puts data.keys    #or   key = data.keys  → puts key
+#
+# 作成されたハッシュオブジェクトに含まれるキーや値だけを取り出すことができる。
+# 取り出された複数のキーや値は配列として取得。
+# キーだけを取得するには「keys」メソッド、値だけを取得するには「values」メソッド
+# 、キーと値の両方を取得するには「to_a」メソッドを使用。
 
 end
 
@@ -182,6 +200,16 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+if data1.include?(:age)
+    puts "OK"
+else
+    puts "NG"
+end
+if data2.include?(:age)
+    puts "OK"
+else
+    puts "NG"
+end
 
 end
 
