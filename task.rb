@@ -211,6 +211,12 @@ else
     puts "NG"
 end
 
+# 　　↓ 三項演算子にて記載したVer
+puts data1.include?(:age) ?  "OK" : "NG"
+ puts  data2.include?(:age) ?   "OK" : "NG"
+
+
+
 end
 
 def q16
@@ -222,12 +228,33 @@ def q16
   ]
 
   # 以下に回答を記載
-
+ users.each do |user|
+     puts  "私の名前は#{user[:name]}です。年齢は#{user[:age]}です。"
+ end
 end
 
 class UserQ17
   # 以下に回答を記載
+ attr_accessor :name
+ attr_accessor :age
+ attr_accessor :gender
+attr_accessor :admin
 
+
+ def initialize(name:,age:,gender:,admin:)
+     self.name = name
+     self.age = age
+     self.gender = gender
+     self.admin = admin ? "あり" : "なし"
+ end
+ def info
+     return puts <<~EOS
+     名前:#{self.name}
+     年齢 :#{self.age}
+     性別:#{self.gender}
+     管理者:#{self.admin}
+     EOS
+ end
 end
 
 def q17
