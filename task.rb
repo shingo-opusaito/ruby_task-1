@@ -235,11 +235,11 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  attr_accessor :name, :age, :gender, :admin
- attr_accessor :name #インスタンス変数を作成。
- attr_accessor :age
- attr_accessor :gender
-attr_accessor :admin
+#   attr_accessor :name, :age, :gender, :admin
+#  attr_accessor :name #インスタンス変数を作成。
+#  attr_accessor :age
+#  attr_accessor :gender
+# attr_accessor :admin
 
 #呼び出しの初期値を設定するためinitializeで引数を設定。selfを使用し呼び出した値を
 #呼び出したインスタンス変数を使用する。
@@ -250,11 +250,13 @@ attr_accessor :admin
  #     self.admin = admin ? "あり" : "なし"
  # end
  # #メソッド に対して戻り値とする。
+ # 上記は必要なかったがどう間違っていたのかを覚えておくため残しておく。
+
 def initialize(**user)
     @name =user [:name]
     @age=user [:age]
     @gender= user [:gender]
-    @admin=user [:admin]
+    @admin=user [:admin] ?"あり" : "なし"
 end
  def info
       puts <<~EOS
