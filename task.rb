@@ -235,30 +235,40 @@ end
 
 class UserQ17
   # 以下に回答を記載
- attr_accessor :name
+  attr_accessor :name, :age, :gender, :admin
+ attr_accessor :name #インスタンス変数を作成。
  attr_accessor :age
  attr_accessor :gender
 attr_accessor :admin
 
-
- def initialize(name:,age:,gender:,admin:)
-     self.name = name
-     self.age = age
-     self.gender = gender
-     self.admin = admin ? "あり" : "なし"
- end
+#呼び出しの初期値を設定するためinitializeで引数を設定。selfを使用し呼び出した値を
+#呼び出したインスタンス変数を使用する。
+ # def initialize(name:,age:,gender:,admin:)
+ #     self.name = name
+ #     self.age = age
+ #     self.gender = gender
+ #     self.admin = admin ? "あり" : "なし"
+ # end
+ # #メソッド に対して戻り値とする。
+def initialize(**user)
+    @name =user [:name]
+    @age=user [:age]
+    @gender= user [:gender]
+    @admin=user [:admin]
+end
  def info
-     return puts <<~EOS
-     名前:#{self.name}
-     年齢 :#{self.age}
-     性別:#{self.gender}
-     管理者:#{self.admin}
+      puts <<~EOS
+     名前:#{@name}
+     年齢 :#{@age}
+     性別:#{@gender}
+     管理者:#{@admin}
      EOS
  end
 end
 
 def q17
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
+  #インスタンスを作成。
   user1 = UserQ17.new(name: "神里", age: 32, gender: "男", admin: true)
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男", admin: false)
 
