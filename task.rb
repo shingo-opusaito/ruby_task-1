@@ -267,6 +267,19 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(user)
+    @name = user[:name]
+    @age = user[:age]
+  end
+
+  def introduce
+    if @age == 32
+      puts "こんにちは,#{@name}申します。宜しくお願いいたします。
+       "
+    elsif
+      puts "はいさいまいど〜，#{@name}です！！！"
+    end
+  end
 end
 
 def q18
@@ -282,8 +295,15 @@ class Item
   # 以下を修正して下さい
 
   def initialize(name)
-    @name = name
+    @name = name[:name]
   end
+  # @name = name → @name = name[:name] ハッシュでパラメーターを受け取る形へ
+
+  # ゲッターが足りてない
+  # def name
+  # names
+  # end　または下記 　❇︎パッケージのせいで勝手にattr_rederにされる
+  attr_reader :name
 end
 
 def q19
@@ -291,6 +311,8 @@ def q19
   book = Item.new(name: 'ゼロ秒思考')
   puts book.name
 end
+
+# - 年齢区分は，幼児(0〜5歳)，子供(6〜12歳)，成人(13〜64歳)，シニア(65〜120歳)の4パターンとします。（この範囲外の年齢については対処しなくてOKです）
 
 class UserQ20
   # 以下に回答を記載

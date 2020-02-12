@@ -7,6 +7,11 @@ class Brave
   #     @hp = hp
   #     @offense = offense
   #     @defense = defense
+
+  attr_reader :name
+  attr_reader :hp
+  attr_reader :offense
+  attr_reader :defense
   # #
   # 今のままではnew演算子で渡す引数の数が増えるとinitializeメソッドの引数も増やす必要があり、変更箇所が多くなってしま
   # 下記のようにinitializeのメソッドの引数をハッシュとして値を受け取れるようにすることでnew演算しで渡す引数が増えても変更箇所が少なくて済む。
@@ -24,29 +29,36 @@ class Brave
   # end
 
   # nameのゲッター
-  attr_reader :name
+  #   def name
+  # @name
+  #   end
 
   # #hpのセッター
   # def hp=(hp )
   #     @hp = hp
   # end
   # hpのゲッター
-  attr_reader :hp
+  # def hp
+  # @hp
+  # end
 
   # #offenseのセッター
   # def offense=(offense)
   #     @offense = offense
   # end
   # offenseのゲッター
-  attr_reader :offense
+  #   def offense
+  # @offense
+  #   end
 
   # #defensのセッター
   # def defense=(defense)
   #     @defense = defense
   # end
   # deffenseのゲッター
-  attr_reader :defense
-
+  #  def defense
+  # @defense
+  # end
   # 勇者クラスをインスタンス化
   # 引数を与えることで柔軟に数値を変えることができるが引数を見ただけではどのパラメーターに渡しているのかわかりづらいため、キーワード引数を使用していく。
   brave = Brave.new(name: 'テリー', hp: 500, offense: 150, defense: 100)
