@@ -319,6 +319,7 @@ end
 attr_accessor :name, :age
 class Zoo
   # 以下に回答を記載
+  initialize
 end
 
 def q20
