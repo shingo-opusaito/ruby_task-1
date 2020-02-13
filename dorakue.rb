@@ -63,7 +63,7 @@ class Brave
   # end
   # 勇者クラスをインスタンス化
   # 引数を与えることで柔軟に数値を変えることができるが引数を見ただけではどのパラメーターに渡しているのかわかりづらいため、キーワード引数を使用していく。
-  brave = Brave.new(name: 'テリー', hp: 500, offense: 150, defense: 100)
+  brave = Brave.new(name: 'テリー', hp: 500, offense: 150, defense: 10)
 
   # パラメータ値を設定 initializeを使用するとここも不要になる。
   # brave.name = "テリー"
