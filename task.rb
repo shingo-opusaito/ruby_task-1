@@ -273,10 +273,9 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
-      puts "こんにちは,#{@name}申します。宜しくお願いいたします。
-       "
-    elsif
+    if @age >= 18
+      puts "こんにちは,#{@name}申します。宜しくお願いいたします。"
+    else
       puts "はいさいまいど〜，#{@name}です！！！"
     end
   end
@@ -287,15 +286,16 @@ def q18
   user1 = UserQ18.new(name: 'あじー', age: 32)
   user2 = UserQ18.new(name: 'ゆたぼん', age: 10)
 
-  puts user1.introduce
-  puts user2.introduce
+  print user1.introduce
+  print user2.introduce
 end
 
 class Item
   # 以下を修正して下さい
+  attr_reader :name
 
-  def initialize(name)
-    @name = name[:name]
+  def initialize(name:)
+    @name = name
   end
   # @name = name → @name = name[:name] ハッシュでパラメーターを受け取る形へ
 
@@ -303,7 +303,6 @@ class Item
   # def name
   # names
   # end　または下記 　❇︎パッケージのせいで勝手にattr_rederにされる
-  attr_reader :name
 end
 
 def q19
@@ -317,7 +316,7 @@ end
 class UserQ20
   # 以下に回答を記載
 end
-
+attr_accessor :name, :age
 class Zoo
   # 以下に回答を記載
 end

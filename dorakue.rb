@@ -7,11 +7,13 @@ class Brave
   #     @hp = hp
   #     @offense = offense
   #     @defense = defense
-
-  attr_reader :name
-  attr_reader :hp
-  attr_reader :offense
-  attr_reader :defense
+  attr_reader :name, :hp, :offense, :defense
+  # セッターゲッターを一括定義
+  attr_accessor :hp
+  # attr_reader :name
+  # attr_reader :hp
+  # attr_reader :offense
+  # attr_reader :defense
   # #
   # 今のままではnew演算子で渡す引数の数が増えるとinitializeメソッドの引数も増やす必要があり、変更箇所が多くなってしま
   # 下記のようにinitializeのメソッドの引数をハッシュとして値を受け取れるようにすることでnew演算しで渡す引数が増えても変更箇所が少なくて済む。
@@ -86,4 +88,8 @@ class Brave
      OFFENSE:#{brave.offense}
      DEFENSE#{brave.defense}
   TEXT
+
+  # ダメージに関するメッセージ
+  brave.hp -= 30
+  puts "#{brave.name}はダメージを受けた！残りhpは#{brave.hp}だ"
 end
