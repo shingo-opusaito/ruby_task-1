@@ -267,7 +267,7 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  def initialize(user)
+  def initialize(**user)
     @name = user[:name]
     @age = user[:age]
   end
@@ -292,11 +292,10 @@ end
 
 class Item
   # 以下を修正して下さい
-  attr_reader :name
-
-  def initialize(name:)
-    @name = name
-  end
+  attr_reader :name,
+              def initialize(name:, tinko:)
+                @name = name
+              end
   # @name = name → @name = name[:name] ハッシュでパラメーターを受け取る形へ
 
   # ゲッターが足りてない
@@ -315,13 +314,39 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  # 初期値をinitializeで設定しているのでセッター 不要、ゲッターだけなのでattr_reader
+  attr_reader :name, :age
+  def initialize(**user) # userはオプション引数
+    @name = user[:name]
+    @age = user[:age]
+  end
 end
-attr_accessor :name, :age
 class Zoo
   # 以下に回答を記載
-  initialize
-end
 
+  attr_reader :name, :entry_fee, :infant, :children, :adult, :aenior
+  def initialize(**zoo)
+    @name = zoo[:name]
+    @infant = zoo[:entry_fee][:infant]
+    @children = zoo [:entry_fee][:children]
+    @adult = zoo[:entry_fee][:adult]
+    @senior = zoo [:entry_fee][:senior]
+  end
+
+  def info_entry_fee(user)
+    fee = case user.age
+          when 0..5
+            @infant
+          when 6..12
+            @children
+          when 13..64
+            @adult
+          when 65..120
+            @senior
+   end
+    puts "#{user.name}さんの入場料は#{fee}円です"
+  end
+end
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
   zoo = Zoo.new(name: '旭山動物園', entry_fee: { infant: 0, children: 400, adult: 800, senior: 500 })
