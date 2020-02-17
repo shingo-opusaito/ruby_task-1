@@ -324,7 +324,6 @@ end
 class Zoo
   # 以下に回答を記載
 
-  attr_reader :name, :entry_fee, :infant, :children, :adult, :aenior
   def initialize(**zoo)
     @name = zoo[:name]
     @infant = zoo[:entry_fee][:infant]
@@ -343,10 +342,12 @@ class Zoo
             @adult
           when 65..120
             @senior
+
    end
     puts "#{user.name}さんの入場料は#{fee}円です"
   end
 end
+
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
   zoo = Zoo.new(name: '旭山動物園', entry_fee: { infant: 0, children: 400, adult: 800, senior: 500 })
